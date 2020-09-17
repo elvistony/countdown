@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <title>Counting Down</title>
+    <style media="screen">
+      .overlay{
+        z-index: 3;
+        opacity: 0.7;
+        position: absolute;
+        color: white;
+        font-family: monospace;
+        top: 10%;
+        left: 5%;
+      }
+      .large{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 35px;
+      }
+      .largest{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 60px;
+      }
+
+      .back{
+        background: black;
+height: -webkit-fill-available;
+width: -webkit-fill-available;
+z-index: 2;
+position: absolute;
+opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body style="background-color:black;overflow: hidden;">
+    <span class="back"></span>
+    <span class="overlay">
+      <p class="largest">The Meet will begin in</p>
+      <p class="large" id="counter">8:00 minutes</p>
+    </span>
+    <!-- &autoplay=1 -->
+    <iframe src="//www.youtube-nocookie.com/embed/xdYYN-4ttDg?enablejsapi=1&controls=0&rel=0" style="width:100%;height:-webkit-fill-available" frameborder="0" style="display=none;" id="video"></iframe>
+  </body>
+  <script type="text/javascript">
+    var tag = document.createElement('script');
+    tag.src = "//www.youtube.com/player_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  </script>
+
+  <script type="text/javascript">
+    var player;
+    var vidElement = document.getElementById('video')
+    function onYouTubePlayerAPIReady() {
+      player = new YT.Player('video', {
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      var playButton = document.getElementById("play-button");
+      console.log(player.getDuration());
+      //player.playVideo();
+      var destination = new Date("Jan 5, 2021 18:00:00").getTime();
+      CountDown(destination,player.getDuration())
+    }
+
+    videoOn=false
+
+    function startVideoAt(seeker) {
+      if(videoOn==false){
+        player.seekTo(seeker)
+        player.playVideo()
+        player.setVolume(25);
+        videoOn=true;
+      }
+    }
+
+    function CountDown(date,vidlen) {
+      // Set the date we're counting down to
+      var counter = document.getElementById('counter')
+      var Time
+      var countDownDate = date
+      var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        counter.innerHTML = minutes + "m " + seconds + "s ";
+        onlySec = Math.floor((distance % (1000 * 60 * 60)) / (1000 ));
+        // console.log(onlySec);
+        if(onlySec <= vidlen+2){
+          startVideoAt(vidlen-onlySec+2)
+        }
+
+
+
+        if (minutes==0 && seconds == 0 ) {
+          clearInterval(x);
+          vidElement.outerHTML=""
+          counter.innerHTML = "a matter of seconds!";
+        }
+      }, 1000);
+    }
+  </script>
+</html>
