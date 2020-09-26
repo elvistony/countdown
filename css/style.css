@@ -1,0 +1,45 @@
+.overlay{
+    z-index: 3;
+    opacity: 0.7;
+    position: absolute;
+    color: white;
+    font-family: monospace;
+    top: 10%;
+    left: 5%;
+}
+.subtitle{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+}
+.title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+}
+
+*{
+    transition: 0.7 ease;
+}
+
+.cover{
+    background: black;
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    z-index: 2;
+    position: absolute;
+    transition: 1s ease;
+    opacity: 0.5;
+  }
+.toast{
+    position: fixed;
+    font-family: 'Montserrat', sans-serif;
+    bottom: -10%;
+    right: 5%;
+    background: white;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 25px;
+    opacity: 0;
+    font-size: 18px;
+    font-style: italic;
+    transition: 1s ease;
+}

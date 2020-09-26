@@ -1,0 +1,33 @@
+<html>
+<title>Elegant Countdown</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Youtube Event Countdown">
+<meta name="description" content="Elegant Countdown - Dashboard">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+<body class="w3-black">
+<div class="w3-center w3-display-middle" id="content" style="max-width:1500px">
+  <p class="w3-small w3-text-light-gray">Elegant CountDown - Dashboard</p>
+  <div class="w3-card w3-round w3-padding w3-white w3-animate-bottom">
+    <p class="w3-small w3-text-gray">Panel</p>
+    <input type="text" class="w3-input" style="width:300px;"  placeholder="Enter Main Text" name="title" value="The Event will begin in">
+    <input type="text" class="w3-input" style="width:300px;"  placeholder="Enter the youtube ID" name="posttimer" value="a matter of moments">
+    <input type="text" class="w3-input" style="width:300px;"  placeholder="Enter the youtube ID" name="youtubeID" value="">
+    <p class="w3-margin">Set Time as </p>
+    <p class="w3-margin">  Duration<input checked type="radio" onchange="changeMode(this)" class="w3-margin" name="mode" value="duration"> Time in Future<input class="w3-margin" onchange="changeMode(this)" type="radio" name="mode" value="time"></p> 
+    <p id="duration" class="w3-margin">Enter Duration <br></span> <input type="number" value="0" name="dur_H" value="10" class=" w3-input" style="width:50px;display: inline-flex;">H <input type="number" value="15" class="w3-input" name="dur_M" style="width: 50px;display: inline-flex;"> M <input name="dur_S" type="number" value="10" class=" w3-input" style="width:50px;display: inline-flex;"> S</p>
+    <p id="time" class="w3-margin w3-hide">Enter Time <br><input type="number" name="time_H" value="10" class=" w3-input" style="width:50px;display: inline-flex;">H <input type="number" name="time_M" value="15" class="w3-input" style="width: 50px;display: inline-flex;"> M <input type="number" name="time_S" value="10" class=" w3-input" style="width:50px;display: inline-flex;"> S</p>
+    <p class=" w3-text-gray">Blur Background <input type="checkbox" class="w3-margin w3-padding" style="display: inline-flex;" name="blur"></p> 
+    <p>Cycling Messages<span class="w3-small w3-text-gray"> SEPARATE BY <b class="w3-text-blue">^</b> </span></p>
+    <textarea name="msgs" id="" class="w3-input w3-border w3-round w3-margin-bottom" rows="3"></textarea>
+    <span type="button" id="save" class="w3-button w3-block w3-orange w3-round-large" onclick="SaveSettings()">Save Settings</span>
+  </div>
+  <script src="../js/cookies.js"></script>
+  <script src="../js/make.js"></script>
+</div>
+
+</body>
+
+</html>
