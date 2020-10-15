@@ -19,7 +19,9 @@
     <p class="w3-margin">  Duration<input checked type="radio" onchange="changeMode(this)" class="w3-margin" name="mode" value="duration"> Time in Future<input class="w3-margin" onchange="changeMode(this)" type="radio" name="mode" value="time"></p> 
     <p id="duration" class="w3-margin">Enter Duration <br></span> <input type="number" value="0" name="dur_H" value="10" class=" w3-input" style="width:50px;display: inline-flex;">H <input type="number" value="15" class="w3-input" name="dur_M" style="width: 50px;display: inline-flex;"> M <input name="dur_S" type="number" value="10" class=" w3-input" style="width:50px;display: inline-flex;"> S</p>
     <p id="time" class="w3-margin w3-hide">Enter Time <br><input type="number" name="time_H" value="10" class=" w3-input" style="width:50px;display: inline-flex;">H <input type="number" name="time_M" value="15" class="w3-input" style="width: 50px;display: inline-flex;"> M <input type="number" name="time_S" value="10" class=" w3-input" style="width:50px;display: inline-flex;"> S</p>
+    <input type="text" class="w3-input" style="width:300px;"  placeholder="Colour HexCode" name="colorcode" value="#00000">
     <p class=" w3-text-gray">Blur Background <input type="checkbox" class="w3-margin w3-padding" style="display: inline-flex;" name="blur"></p> 
+    <p class=" w3-text-gray">Enable Constant Tint <input type="checkbox" class="w3-margin w3-padding" style="display: inline-flex;" name="tint"></p> 
     <p>Cycling Messages<span class="w3-small w3-text-gray"> SEPARATE BY <b class="w3-text-blue">^</b> </span></p>
     <textarea name="msgs" id="" class="w3-input w3-border w3-round w3-margin-bottom" rows="3"></textarea>
     <span type="button" id="save" class="w3-button w3-block w3-orange w3-round-large" onclick="SaveSettings()">Save Settings</span>

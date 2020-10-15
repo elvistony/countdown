@@ -33,7 +33,9 @@ var mode="duration"
         "mode":mode,
         "blur":document.getElementsByName('blur')[0].checked==true?true:false,
         "time":time,
-        "msgs":document.getElementsByName('msgs')[0].value
+        "msgs":document.getElementsByName('msgs')[0].value,
+        "color":document.getElementsByName('colorcode')[0].value,
+        "tint":document.getElementsByName('tint')[0].checked==true?true:false
       }
       console.log(JSON.stringify(jsn));
       setCookie(JSON.stringify(jsn))
@@ -58,6 +60,9 @@ var mode="duration"
         document.getElementsByName('youtubeID')[0].value ="https://www.youtube.com/watch?v="+parsed["youtubeID"]
         if(parsed["blur"]==true){
           document.getElementsByName('blur')[0].checked=true;
+        }
+        if(parsed["tint"]==true){
+          document.getElementsByName('tint')[0].checked=true;
         }
         if(parsed['mode']=="duration"){
           document.getElementsByName('dur_H')[0].value = parsed['time'].split(':')[0]

@@ -4,7 +4,6 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 let destination;
-
 function onPlayerReady(event) {
   var playButton = document.getElementById("play-button");
   console.log(player.getDuration());
@@ -25,6 +24,9 @@ function onYouTubePlayerAPIReady() {
 var videoOn=false;
 function startVideoAt(seeker) {
   if(videoOn==false){
+    setTimeout(()=>{    document.getElementById('ifr').style.opacity="1";
+    document.getElementsByClassName('cover')[0].style.opacity="0.5"; 
+   },3800)
     player.seekTo(seeker)
     player.playVideo()
     player.setVolume(70);
@@ -52,7 +54,7 @@ function toaster(msg){
 var msgs=[]
 
   let postmsg;
-  function setOptions(){
+function setOptions(){
   var data = getCookie('Counter')
   if(data==""){
     setCookie('{"title":"The Event will begin in","posttimer":"a matter of moments","youtube_id":"hYgKv4ZxaCM","mode":"duration","blur":true,"time":"17:10"}')
@@ -66,6 +68,14 @@ var msgs=[]
     if(parsed['blur']==true){
       document.getElementById('ifr').style.filter='blur(6px)';
     }
+    if(parsed['tint']==false){
+      document.getElementsByClassName('cover')[0].style.opacity="0";
+      console.log("no tint");
+    }else{
+      document.getElementsByClassName('cover')[0].style.opacity="0.5 !important";
+    }
+    document.getElementsByClassName('cover')[0].style.background=parsed['color'];
+    console.log(parsed['color']);
     postmsg = parsed['posttimer'];
     var d1 = new Date ();
     var d = new Date (d1);
