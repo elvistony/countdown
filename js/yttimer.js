@@ -86,7 +86,8 @@ function setOptions(){
       d.setSeconds(d.getSeconds()+(parsed['time'].split(':')[2]*1))
       console.log(d);
     }else{
-      d.setHours(d.getHours())
+      console.log(parsed['time'])
+      d.setHours(parsed['time'].split(':')[0]*1)
       d.setMinutes(parsed['time'].split(':')[1]*1)
       d.setSeconds(parsed['time'].split(':')[2]*1)
     }
